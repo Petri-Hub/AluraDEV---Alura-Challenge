@@ -1,0 +1,62 @@
+@import './variables';
+
+@mixin defaultInput($width: 100%, $height: 56px){
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.16);
+    border: none;
+    color: rgba(255, 255, 255, 0.64);
+    font-size: 16px;
+    height: $height;
+    padding: 16px 14px;
+    width: $width;
+
+    &::placeholder{
+        color: rgba(255, 255, 255, 0.64);
+    }
+}
+
+@mixin title{
+    color: $white;
+    font-size: 12px;
+    letter-spacing: 6px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+@mixin button($bgColor: #5081FB14, $height: 56px, $color: #FFFFFF){
+    background-color: $bgColor;
+    width: 100%;
+    font-size: 16px;
+    height: $height;
+    color: $color;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+@mixin display(
+    $displayConfig: flex, 
+    $justifyConfig: center, 
+    $alignConfig: center, 
+    $directionConfig: row
+    ) {
+    display: $displayConfig;
+    justify-content: $justifyConfig;
+    align-items: $alignConfig;
+    flex-direction: $directionConfig;
+}
+
+html, body, *{
+    box-sizing: border-box;
+    font-family: $font;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: $bg-color;
+    height: 100vh;
+    overflow-x: hidden;
+    padding: 2rem;
+    width: 100vw;
+}

@@ -1,0 +1,57 @@
+@import '../Abstract/bases';
+@import '../Abstract/variables';
+
+.options-menu{
+    margin-left: 32px;
+
+    &__project{
+        &__title{
+            @include title;
+        }
+
+        &__name{
+            @include defaultInput;
+            margin-bottom: 16px;
+        }
+
+        &__desc{
+            @include defaultInput(100%, 80px);
+            margin-bottom: 40px;
+        }
+    }
+
+    &__custom{
+        &__title{
+            @include title
+        }
+
+        &__language{
+            @include defaultInput;
+            margin-bottom: 16px;
+
+            &__option{
+                background-color: rgb(45, 65, 90);
+                color: rgba(255, 255, 255, 0.64);
+            }
+        }
+
+        .color-wrapper{
+            border-radius: 8px;
+            max-height: 56px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        &__color{
+            transform: translate(-3%, -8%);
+            width: 110%;
+            height: 70px;
+            border: none;
+            background-color: transparent;
+        }
+    }
+
+    #Save-Project-Btn{
+        @include button($menu-color, 56px, $black)
+    }
+}

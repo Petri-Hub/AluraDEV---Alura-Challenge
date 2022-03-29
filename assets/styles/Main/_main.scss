@@ -1,0 +1,54 @@
+@import '../Abstract/bases';
+@import '../Abstract/variables';
+
+main{
+    width: 100%;
+}
+
+.code-area{
+    @include display(flex, center, center, column);
+    background-color: $menu-color;
+    border-radius: 8px;
+    padding: 16px;
+    width: 100%;
+
+    &__inner{
+        background-color: $black;
+        border-radius: 8px;
+        padding: 16px;
+        height: 100%;
+        width: 100%;
+
+        &__header{
+            width: 100%;
+            height: 36px;
+        }
+
+        &__code-input{
+            background-color: $black;
+            padding-right: 6px;
+            border: none;
+            min-height: 300px;
+            resize: none;
+            font-family: $code-font;
+            color: $white;
+            font-size: 16px;
+            width: 100%;
+            outline: none;
+
+            &::-webkit-scrollbar{
+                width: 5px;
+            }
+
+            &::-webkit-scrollbar-thumb{
+                background-color: #aaaaaa;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    &__button{
+        @include button;
+        margin-top: 32px
+    }
+}

@@ -1,0 +1,48 @@
+@import '../Abstract/variables';
+@import '../Abstract/bases';
+
+.app{
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+   
+    margin-top: 40px;
+
+    .nav-menu{
+        width: 100%;
+
+        &__title{
+            @include title
+        }
+
+        &__list{
+            &__item{
+                margin-bottom: 16px;
+                opacity: 0.5;
+
+                a{
+                    @include display(flex, flex-start, center);
+                    color: $white;
+                    text-decoration: none;
+                }
+    
+                .icon-wrapper{
+                    background-color: $menu-color;
+                    border-radius: 16px;
+                    display: grid;
+                    height: 48px;
+                    margin-right: 16px;
+                    place-items: center;
+                    width: 48px;
+                }
+
+                &-selected{
+                    opacity: 1;
+                }
+            }
+
+            
+        }
+
+    }
+        
+}
