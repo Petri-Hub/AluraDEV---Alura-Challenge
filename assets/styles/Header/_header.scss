@@ -14,6 +14,17 @@
         @include defaultInput
     }
 
+    .right-items{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    &__button-icon{
+        @include icon();
+        display: none
+    }
+
     &__user-data{
         @include display(flex, flex-end);
 
@@ -33,5 +44,32 @@
   
     }
 
+}
 
+@media screen and (max-width: 768px){
+    .header{
+        grid-template-columns: 25% 65% 10%;
+    }
+    
+    .header__user-data{
+        display: none;
+    }
+
+    #menuBtn{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .header{
+        grid-template-columns: 50% 50%;
+    }
+
+    .header__search-bar{
+        display: none;
+    }
+
+    #searchBtn{
+        display: block;
+    }
 }

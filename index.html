@@ -23,7 +23,9 @@
                 class="header__search-bar"
                 placeholder="Search for something..."
             />
-            <div>
+            <div class="right-items">
+                <button class="header__button-icon" id="searchBtn"><img src="/assets/Images/search-icon.svg" alt="Search Button"></button>
+                <button class="header__button-icon" id="menuBtn"><img src="/assets/Images/menu-icon.svg" alt="Menu Button"></button>
                 <div class="header__user-data">
                     <div class="header__user-data-image" alt="User image"></div>
                     <h3 class="header__user-data-name">Harry</h3>
@@ -103,32 +105,34 @@
                 <!-- CUSTOM -->
                 <section class="options-menu__custom">
                     <h3 class="options-menu__custom__title">Customization</h3>
-                    <select
-                        class="options-menu__custom__language"
-                        name="code-language"
-                        id="Code-Language"
-                    >
-                        <option
-                            class="options-menu__custom__language__option"
-                            value="JavaScript"
+                    <div class="options-menu__wrapper">
+                        <select
+                            class="options-menu__custom__language"
+                            name="code-language"
+                            id="Code-Language"
                         >
-                            JavaScript
-                        </option>
-                        <option
-                            class="options-menu__custom__language__option"
-                            value="TypeScript"
-                        >
-                            TypeScript
-                        </option>
-                    </select>
-                    <div class="color-wrapper">
-                        <input
-                        class="options-menu__custom__color"
-                        type="color"
-                        name="background-color"
-                        id="Background-Color"
-                        value="#F04747"
-                    />
+                            <option
+                                class="options-menu__custom__language__option"
+                                value="JavaScript"
+                            >
+                                JavaScript
+                            </option>
+                            <option
+                                class="options-menu__custom__language__option"
+                                value="TypeScript"
+                            >
+                                TypeScript
+                            </option>
+                        </select>
+                        <div class="color-wrapper">
+                            <input
+                            class="options-menu__custom__color"
+                            type="color"
+                            name="background-color"
+                            id="Background-Color"
+                            value="#F04747"
+                        />
+                        </div>
                     </div>
                     
                 </section>

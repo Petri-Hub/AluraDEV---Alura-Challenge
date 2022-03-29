@@ -15,6 +15,15 @@
     }
 }
 
+@mixin icon(){
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    margin: 0px 8px;
+}
+
 @mixin title{
     color: $white;
     font-size: 12px;
@@ -59,4 +68,10 @@ body{
     overflow-x: hidden;
     padding: 2rem;
     width: 100vw;
+}
+
+@media screen and (max-width: 450px){
+    body{
+        padding: 1rem;
+    }
 }

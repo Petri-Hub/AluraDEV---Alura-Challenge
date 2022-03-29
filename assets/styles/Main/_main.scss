@@ -49,6 +49,17 @@ main{
 
     &__button{
         @include button;
-        margin-top: 32px
+        margin-top: 32px;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .code-area{
+        padding: 32px;
+    }
+
+    .code-area__inner__code-input{
+        min-height: 470px;
     }
 }

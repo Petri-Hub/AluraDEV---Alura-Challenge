@@ -34,6 +34,12 @@ body {
   width: 100vw;
 }
 
+@media screen and (max-width: 450px) {
+  body {
+    padding: 1rem;
+  }
+}
+
 html, body, * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -48,6 +54,12 @@ body {
   overflow-x: hidden;
   padding: 2rem;
   width: 100vw;
+}
+
+@media screen and (max-width: 450px) {
+  body {
+    padding: 1rem;
+  }
 }
 
 .header {
@@ -99,6 +111,28 @@ body {
   color: rgba(255, 255, 255, 0.64);
 }
 
+.header .right-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.header__button-icon {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  margin: 0px 8px;
+  display: none;
+}
+
 .header__user-data {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -129,6 +163,32 @@ body {
   width: 32px;
 }
 
+@media screen and (max-width: 768px) {
+  .header {
+    -ms-grid-columns: 25% 65% 10%;
+        grid-template-columns: 25% 65% 10%;
+  }
+  .header__user-data {
+    display: none;
+  }
+  #menuBtn {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .header {
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
+  }
+  .header__search-bar {
+    display: none;
+  }
+  #searchBtn {
+    display: block;
+  }
+}
+
 html, body, * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -143,6 +203,12 @@ body {
   overflow-x: hidden;
   padding: 2rem;
   width: 100vw;
+}
+
+@media screen and (max-width: 450px) {
+  body {
+    padding: 1rem;
+  }
 }
 
 .app {
@@ -203,6 +269,16 @@ body {
   opacity: 1;
 }
 
+@media screen and (max-width: 768px) {
+  .app {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+  .nav-menu {
+    display: none;
+  }
+}
+
 html, body, * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -217,6 +293,12 @@ body {
   overflow-x: hidden;
   padding: 2rem;
   width: 100vw;
+}
+
+@media screen and (max-width: 450px) {
+  body {
+    padding: 1rem;
+  }
 }
 
 main {
@@ -288,6 +370,16 @@ main {
   border: none;
   cursor: pointer;
   margin-top: 32px;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 450px) {
+  .code-area {
+    padding: 32px;
+  }
+  .code-area__inner__code-input {
+    min-height: 470px;
+  }
 }
 
 html, body, * {
@@ -304,6 +396,12 @@ body {
   overflow-x: hidden;
   padding: 2rem;
   width: 100vw;
+}
+
+@media screen and (max-width: 450px) {
+  body {
+    padding: 1rem;
+  }
 }
 
 .options-menu {
@@ -382,6 +480,15 @@ body {
   text-transform: uppercase;
 }
 
+.options-menu__custom .options-menu__wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -webkit-column-gap: 24px;
+          column-gap: 24px;
+}
+
 .options-menu__custom__language {
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.16);
@@ -416,17 +523,18 @@ body {
 }
 
 .options-menu__custom .color-wrapper {
+  width: 100%;
   border-radius: 8px;
-  max-height: 56px;
+  height: 56px;
   overflow: hidden;
   margin-bottom: 16px;
 }
 
 .options-menu__custom__color {
-  -webkit-transform: translate(-3%, -8%);
-          transform: translate(-3%, -8%);
-  width: 110%;
-  height: 70px;
+  -webkit-transform: translate(-10%, -10%);
+          transform: translate(-10%, -10%);
+  width: 1500%;
+  height: 90px;
   border: none;
   background-color: transparent;
 }
@@ -440,5 +548,23 @@ body {
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .options-menu {
+    margin: 0;
+  }
+  .options-menu__wrapper {
+    -ms-grid-columns: (calc(50% - 12px))[2] !important;
+        grid-template-columns: repeat(2, calc(50% - 12px)) !important;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .options-menu__wrapper {
+    -ms-grid-columns: 100% !important;
+        grid-template-columns: 100% !important;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -4,7 +4,6 @@
 .app{
     display: grid;
     grid-template-columns: 25% 50% 25%;
-   
     margin-top: 40px;
 
     .nav-menu{
@@ -45,4 +44,14 @@
 
     }
         
+}
+
+@media screen and (max-width: 768px){
+    .app{
+        grid-template-columns: 100%;
+    }
+
+    .nav-menu{
+        display: none;
+    }
 }

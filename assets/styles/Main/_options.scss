@@ -20,9 +20,17 @@
         }
     }
 
+    
     &__custom{
+
         &__title{
-            @include title
+            @include title;
+        }
+
+        .options-menu__wrapper{
+            display: grid;
+            grid-template-columns: 100%;
+            column-gap: 24px;
         }
 
         &__language{
@@ -36,22 +44,40 @@
         }
 
         .color-wrapper{
+            width: 100%;
             border-radius: 8px;
-            max-height: 56px;
+            height: 56px;
             overflow: hidden;
             margin-bottom: 16px;
         }
 
         &__color{
-            transform: translate(-3%, -8%);
-            width: 110%;
-            height: 70px;
+            transform: translate(-10%, -10%);
+            width: 1500%;
+            height: 90px;
             border: none;
             background-color: transparent;
         }
     }
 
     #Save-Project-Btn{
-        @include button($menu-color, 56px, $black)
+        @include button($menu-color, 56px, $black);
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .options-menu{
+        margin: 0;
+    }
+
+    .options-menu__wrapper{
+        grid-template-columns: repeat(2, calc(50% - 12px)) !important;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .options-menu__wrapper{
+        grid-template-columns: 100% !important;
     }
 }
