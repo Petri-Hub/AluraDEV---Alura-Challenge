@@ -6,8 +6,8 @@ main{
 }
 
 .code-area{
-    @include display(flex, center, center, column);
-    background-color: $menu-color;
+    @include Display(flex, center, center, column);
+    background-color: #D60040;
     border-radius: 8px;
     padding: 16px;
     width: 100%;
@@ -48,7 +48,7 @@ main{
     }
 
     &__button{
-        @include button;
+        @include Button('outlined');
         margin-top: 32px;
         margin-bottom: 40px;
     }
@@ -60,6 +60,6 @@ main{
     }
 
     .code-area__inner__code-input{
-        min-height: 470px;
+        min-height: 390px;
     }
 }

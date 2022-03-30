@@ -6,6 +6,9 @@
         <!-- CSS -->
         <link rel="stylesheet" href="/assets/styles/reset.css" />
         <link rel="stylesheet" href="/assets/styles/style.css" />
+        <!-- JAVASCRIPT -->
+        <script defer type="module" src="./app/main.js"></script>
+
         <title>Editor | Alura Dev</title>
     </head>
     <body>
@@ -24,8 +27,15 @@
                 placeholder="Search for something..."
             />
             <div class="right-items">
-                <button class="header__button-icon" id="searchBtn"><img src="/assets/Images/search-icon.svg" alt="Search Button"></button>
-                <button class="header__button-icon" id="menuBtn"><img src="/assets/Images/menu-icon.svg" alt="Menu Button"></button>
+                <button class="header__button-icon" id="searchBtn">
+                    <img
+                        src="/assets/Images/search-icon.svg"
+                        alt="Search Button"
+                    />
+                </button>
+                <button class="header__button-icon" id="menuBtn">
+                    <img src="/assets/Images/menu-icon.svg" alt="Menu Button" />
+                </button>
                 <div class="header__user-data">
                     <div class="header__user-data-image" alt="User image"></div>
                     <h3 class="header__user-data-name">Harry</h3>
@@ -74,72 +84,76 @@
                 <div class="code-area">
                     <div class="code-area__inner">
                         <div class="code-area__inner__header">❤️💛💚</div>
-                        <textarea
+                        <pre
+                            contenteditable="true"
                             class="code-area__inner__code-input"
                             id="Code-Input"
-                            type="text"
-                            placeholder="Write your code here!"
-                        ></textarea>
+                        ></pre>
                     </div>
                 </div>
                 <button class="code-area__button" id="Highlight-Button">
                     Apply Highlight
                 </button>
             </main>
+
             <!-- OPTIONS MENU -->
             <aside class="options-menu">
                 <!-- PROJECT -->
-                <section class="options-menu__project">
-                    <h3 class="options-menu__project__title">Seu Projeto</h3>
-                    <input
-                        class="options-menu__project__name"
-                        placeholder="Your project name"
-                        type="text"
-                    />
-                    <input
-                        class="options-menu__project__desc"
-                        placeholder="Your project description"
-                        type="text"
-                    />
-                </section>
-                <!-- CUSTOM -->
-                <section class="options-menu__custom">
-                    <h3 class="options-menu__custom__title">Customization</h3>
-                    <div class="options-menu__wrapper">
-                        <select
-                            class="options-menu__custom__language"
-                            name="code-language"
-                            id="Code-Language"
-                        >
-                            <option
-                                class="options-menu__custom__language__option"
-                                value="JavaScript"
-                            >
-                                JavaScript
-                            </option>
-                            <option
-                                class="options-menu__custom__language__option"
-                                value="TypeScript"
-                            >
-                                TypeScript
-                            </option>
-                        </select>
-                        <div class="color-wrapper">
-                            <input
-                            class="options-menu__custom__color"
-                            type="color"
-                            name="background-color"
-                            id="Background-Color"
-                            value="#F04747"
+                <form id="Main-Form">
+                    <fieldset class="options-menu__project">
+                        <legend class="options-menu__project__title">
+                            Seu Projeto
+                        </legend>
+                        <input
+                            class="options-menu__project__name"
+                            placeholder="Your project name"
+                            type="text"
                         />
+                        <textarea
+                            class="options-menu__project__desc"
+                            placeholder="Your project description"
+                            form="Main-Form"
+                        ></textarea>
+                    </fieldset>
+                    <!-- CUSTOM -->
+                    <fieldset class="options-menu__custom">
+                        <legend class="options-menu__custom__title">
+                            Customization
+                        </legend>
+                        <div class="options-menu__wrapper">
+                            <select
+                                class="options-menu__custom__language"
+                                name="code-language"
+                                id="Code-Language"
+                            >
+                                <option
+                                    class="options-menu__custom__language__option"
+                                    value="JavaScript"
+                                >
+                                    JavaScript
+                                </option>
+                                <option
+                                    class="options-menu__custom__language__option"
+                                    value="TypeScript"
+                                >
+                                    TypeScript
+                                </option>
+                            </select>
+                            <div class="color-wrapper">
+                                <input
+                                    class="options-menu__custom__color"
+                                    type="color"
+                                    name="background-color"
+                                    id="Background-Color"
+                                    value="#D60040"
+                                />
+                            </div>
                         </div>
-                    </div>
-                    
-                </section>
-
-                <button id="Save-Project-Btn" type="submit">
-                    Save Project
-                </button>
+                    </fieldset>
+                    <button id="Save-Project-Btn" type="submit">
+                        Save Project
+                    </button>
+                </form>
             </aside>
         </section>
     </body>

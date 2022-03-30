@@ -10,7 +10,7 @@
         width: 100%;
 
         &__title{
-            @include title
+            @include Title();
         }
 
         &__list{
@@ -19,31 +19,28 @@
                 opacity: 0.5;
 
                 a{
-                    @include display(flex, flex-start, center);
+                    @include Display(flex, flex-start, center);
                     color: $white;
                     text-decoration: none;
                 }
-    
+
                 .icon-wrapper{
-                    background-color: $menu-color;
-                    border-radius: 16px;
-                    display: grid;
-                    height: 48px;
-                    margin-right: 16px;
-                    place-items: center;
-                    width: 48px;
+                    @include Icon('nav'); 
                 }
 
                 &-selected{
                     opacity: 1;
+
+                    .icon-wrapper{
+                        background-color: #5081FB;
+                        &:hover, &:active, &:focus{
+                            background-color: #5081FB;   
+                        }
+                    }
                 }
             }
-
-            
         }
-
-    }
-        
+    }      
 }
 
 @media screen and (max-width: 768px){

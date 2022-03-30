@@ -2,7 +2,7 @@
 @import '../Abstract/bases';
 
 .header{
-    @include display(grid, space-between, center);
+    @include Display(grid, space-between, center);
     grid-template-columns: 25% 50% 25%;
     height: 56px;
     
@@ -11,26 +11,28 @@
     }
 
     &__search-bar{
-        @include defaultInput
+        @include Input();
     }
 
     .right-items{
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
+        @include Display(flex, flex-end, center)
     }
 
     &__button-icon{
-        @include icon();
+        @include Icon('menu');
         display: none
     }
 
     &__user-data{
-        @include display(flex, flex-end);
+        @include Display(flex, flex-end);
+        padding: 12px;
+        border-radius: 8px;
+        cursor: pointer;
 
         &-name{
             color: $white;
             margin-left: 0.75rem;
+            user-select: none;
         }
 
         &-image{
@@ -39,9 +41,13 @@
             background-position: center;
             border-radius: 100%;
             height: 32px;
+            transition: 0.3s;
             width: 32px;
         }
   
+        &:hover{
+            background-color: #FFFFFF14;
+        }
     }
 
 }

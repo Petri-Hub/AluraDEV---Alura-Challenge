@@ -85,52 +85,78 @@ body {
 }
 
 .header__search-bar {
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.16);
+  background-color: #FFFFFF29;
   border: none;
+  border-radius: 8px;
   color: rgba(255, 255, 255, 0.64);
   font-size: 16px;
-  height: 56px;
+  margin-bottom: 16px;
+  min-height: 56px;
   padding: 16px 14px;
+  position: relative;
   width: 100%;
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
 }
 
 .header__search-bar::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .header__search-bar:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .header__search-bar::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .header__search-bar::placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.header__search-bar:hover {
+  background-color: #FFFFFF3D;
 }
 
 .header .right-items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .header__button-icon {
   border: none;
-  background-color: transparent;
+  border-radius: 8px;
   cursor: pointer;
-  width: 32px;
-  height: 32px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  height: 48px;
   margin: 0px 8px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 48px;
+  background-color: transparent;
   display: none;
+}
+
+.header__button-icon:hover {
+  background-color: #5081FB14;
+}
+
+.header__button-icon:active {
+  background-color: #5081FB29;
 }
 
 .header__user-data {
@@ -147,11 +173,18 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .header__user-data-name {
   color: #ffffff;
   margin-left: 0.75rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .header__user-data-image {
@@ -160,7 +193,13 @@ body {
   background-position: center;
   border-radius: 100%;
   height: 32px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   width: 32px;
+}
+
+.header__user-data:hover {
+  background-color: #FFFFFF14;
 }
 
 @media screen and (max-width: 768px) {
@@ -255,18 +294,38 @@ body {
 }
 
 .app .nav-menu__list__item .icon-wrapper {
-  background-color: #5081FB;
-  border-radius: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
   display: -ms-grid;
   display: grid;
-  height: 48px;
-  margin-right: 16px;
   place-items: center;
+  height: 48px;
+  margin: 0px 8px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   width: 48px;
+  background-color: #5081FB29;
+}
+
+.app .nav-menu__list__item .icon-wrapper:hover {
+  background-color: #5081FBA3;
+}
+
+.app .nav-menu__list__item .icon-wrapper:active {
+  background-color: #5081FB;
 }
 
 .app .nav-menu__list__item-selected {
   opacity: 1;
+}
+
+.app .nav-menu__list__item-selected .icon-wrapper {
+  background-color: #5081FB;
+}
+
+.app .nav-menu__list__item-selected .icon-wrapper:hover, .app .nav-menu__list__item-selected .icon-wrapper:active, .app .nav-menu__list__item-selected .icon-wrapper:focus {
+  background-color: #5081FB;
 }
 
 @media screen and (max-width: 768px) {
@@ -319,7 +378,7 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #5081FB;
+  background-color: #D60040;
   border-radius: 8px;
   padding: 16px;
   width: 100%;
@@ -361,16 +420,30 @@ main {
 }
 
 .code-area__button {
-  background-color: #5081FB14;
-  width: 100%;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
   font-size: 16px;
   height: 56px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 100%;
   color: #FFFFFF;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
+  background-color: #5081FB14;
   margin-top: 32px;
   margin-bottom: 40px;
+}
+
+.code-area__button:hover {
+  background-color: #5081FB29;
+}
+
+.code-area__button:active {
+  border: 4px solid #5081FB3D;
+}
+
+.code-area__button:focus {
+  background-color: #5081FB3D;
 }
 
 @media screen and (max-width: 450px) {
@@ -378,7 +451,7 @@ main {
     padding: 32px;
   }
   .code-area__inner__code-input {
-    min-height: 470px;
+    min-height: 390px;
   }
 }
 
@@ -417,59 +490,74 @@ body {
 }
 
 .options-menu__project__name {
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.16);
+  background-color: #FFFFFF29;
   border: none;
+  border-radius: 8px;
   color: rgba(255, 255, 255, 0.64);
   font-size: 16px;
-  height: 56px;
-  padding: 16px 14px;
-  width: 100%;
   margin-bottom: 16px;
+  min-height: 56px;
+  padding: 16px 14px;
+  position: relative;
+  width: 100%;
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
 }
 
 .options-menu__project__name::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .options-menu__project__name:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .options-menu__project__name::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .options-menu__project__name::placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.options-menu__project__name:hover {
+  background-color: #FFFFFF3D;
 }
 
 .options-menu__project__desc {
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.16);
+  background-color: #FFFFFF29;
   border: none;
+  border-radius: 8px;
   color: rgba(255, 255, 255, 0.64);
   font-size: 16px;
-  height: 80px;
-  padding: 16px 14px;
-  width: 100%;
   margin-bottom: 40px;
+  min-height: 80px;
+  padding: 16px 14px;
+  position: relative;
+  width: 100%;
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
+  resize: vertical;
 }
 
 .options-menu__project__desc::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .options-menu__project__desc:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .options-menu__project__desc::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .options-menu__project__desc::placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.options-menu__project__desc:hover {
+  background-color: #FFFFFF3D;
 }
 
 .options-menu__custom__title {
@@ -490,31 +578,42 @@ body {
 }
 
 .options-menu__custom__language {
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.16);
+  background-color: #FFFFFF29;
   border: none;
+  border-radius: 8px;
   color: rgba(255, 255, 255, 0.64);
   font-size: 16px;
-  height: 56px;
-  padding: 16px 14px;
-  width: 100%;
   margin-bottom: 16px;
+  min-height: 56px;
+  padding: 16px 14px;
+  position: relative;
+  width: 100%;
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
 }
 
 .options-menu__custom__language::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .options-menu__custom__language:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .options-menu__custom__language::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .options-menu__custom__language::placeholder {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.options-menu__custom__language:hover {
+  background-color: #FFFFFF3D;
 }
 
 .options-menu__custom__language__option {
@@ -522,38 +621,57 @@ body {
   color: rgba(255, 255, 255, 0.64);
 }
 
-.options-menu__custom .color-wrapper {
+.options-menu__custom__color {
   width: 100%;
-  border-radius: 8px;
   height: 56px;
-  overflow: hidden;
   margin-bottom: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-.options-menu__custom__color {
-  -webkit-transform: translate(-10%, -10%);
-          transform: translate(-10%, -10%);
-  width: 1500%;
-  height: 90px;
-  border: none;
-  background-color: transparent;
+.options-menu__custom__color::-webkit-color-swatch-wrapper, .options-menu__custom__color::-webkit-color-swatch {
+  border-radius: 8px;
+  margin: 0;
+  padding: 0;
 }
 
 .options-menu #Save-Project-Btn {
-  background-color: #5081FB;
-  width: 100%;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
   font-size: 16px;
   height: 56px;
-  color: #141414;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 100%;
+  color: #051D3B;
+  background-color: #5081FB;
   margin-bottom: 40px;
+}
+
+.options-menu #Save-Project-Btn:hover {
+  background-color: #7BA4FC;
+}
+
+.options-menu #Save-Project-Btn:active {
+  border: 4px solid #5081FBB8;
+}
+
+.options-menu #Save-Project-Btn:focus {
+  background-color: #96B9FD;
+}
+
+.options-menu #Save-Project-Btn:hover {
+  background-color: #7BA4FC;
 }
 
 @media screen and (max-width: 768px) {
   .options-menu {
     margin: 0;
+  }
+  .options-menu__project__desc {
+    min-height: 200px;
   }
   .options-menu__wrapper {
     -ms-grid-columns: (calc(50% - 12px))[2] !important;
