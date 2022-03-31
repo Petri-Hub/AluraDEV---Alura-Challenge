@@ -1,5 +1,5 @@
 @import '../Abstract/variables';
-@import '../Abstract/bases';
+@import '../Abstract/mixins';
 
 .header{
     @include Display(grid, space-between, center);

@@ -1,0 +1,97 @@
+@import '../Abstract/mixins';
+@import '../Abstract/variables';
+
+.community{
+    @include Display(grid, space-between, center);
+    grid-template-columns: repeat(2, calc(50% - 0.75rem));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    .community__card{
+        overflow: hidden;
+        border-radius: 8px;
+        background-color: #00000029;
+        
+        &:hover .community__card__information{
+            height: 170px;
+        }
+
+        .code-area__inner{
+            border-radius: 8px;
+            padding: 24px;
+            height: 250px;
+            background-color: blue;
+
+            .code-area__inner__header{
+                border-radius: 8px 8px 0 0;
+                padding: 12px;
+            }
+
+            .code-area__inner__code-input{
+                overflow: hidden;
+                font-size: 11px;
+                padding: 12px;
+                min-height: 165px;
+                max-height: 165px;
+                border-radius: 0 0 8px 8px;
+            }
+        }
+        
+        .community__card__information{
+            transition: 0.3s;
+            height: 100px;
+            padding: 24px;
+
+            h2{
+                
+                color: white;
+                font-size: 21px;
+                font-weight: 700;
+            }
+
+            p{
+                margin-top: 12px;
+                font-size: 16px;
+                color: white;
+            }
+        }
+
+        .card__bottom{
+            @include Display(flex, space-between, center, row);
+            grid-template-columns: 15% 60% 25%;
+            margin-top: 24px;
+
+            .card__bottom__icons{
+                @include Display(flex, space-between, center, row);
+
+                .card__bottom__icon{
+                    @include Icon('posts');
+                    margin: 0;
+    
+                    p{
+                        margin-left: 8px
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .card__bottom{
+        grid-template-columns: 10% 90% !important;
+    }
+
+    .community{
+        grid-template-columns: 100%;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .card__bottom{
+        grid-template-columns: 20% 80% !important;
+    }
+}
+
+

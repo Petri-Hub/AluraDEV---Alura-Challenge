@@ -1,113 +1,5 @@
 @import './variables';
 
-@mixin Input($marginBottom: 16px, $width: 100%, $height: 56px){
-    background-color: #FFFFFF29;
-    border: none;
-    border-radius: 8px;
-    color: rgba(255, 255, 255, 0.64);
-    font-size: 16px;
-    margin-bottom: $marginBottom;
-    min-height: $height;
-    padding: 16px 14px;
-    position: relative;
-    width: $width;
-    transition: background 0.3s;
-    &::placeholder{
-        color: rgba(255, 255, 255, 0.65);
-    }
-    &:hover{
-        background-color: #FFFFFF3D;
-    }
-}
-
-@mixin Icon($iconType){
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    height: 48px;
-    margin: 0px 8px;
-    transition: 0.3s;
-    width: 48px;
-
-    @if $iconType == "menu" {
-        background-color: transparent;
-        &:hover{background-color: #5081FB14;}
-        &:active{background-color: #5081FB29;}
-    }
-
-    @else if $iconType == "nav" {
-        background-color: #5081FB29;
-        &:hover{background-color: #5081FBA3;}
-        &:active{background-color: #5081FB;}
-    }
-
-    @else if $iconType == "posts" {
-        background-color: transparent;
-        &:hover{background-color: #FFFFFF14;}
-        &:active{background-color: #FFFFFF29;}
-    }
-}
-
-@mixin Title($color: $white){
-    color: $color;
-    font-size: 12px;
-    letter-spacing: 6px;
-    margin-bottom: 16px;
-    text-transform: uppercase;
-}
-
-@mixin Button($buttonType){
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    height: 56px;
-    transition: 0.3s;
-    width: 100%;
-
-    @if $buttonType == "filled" {
-        color: #051D3B;
-        background-color: #5081FB;
-        &:hover{
-            background-color: #7BA4FC;
-        }
-        &:active{
-            border: 4px solid #5081FBB8;
-        }
-        &:focus{
-            background-color: #96B9FD;
-        }
-    }
-    
-    @else if $buttonType == "outlined" {
-        color: #FFFFFF;
-        background-color: #5081FB14;
-        &:hover{
-            background-color: #5081FB29;
-        }
-        &:active{
-            border: 4px solid #5081FB3D;
-        }
-        &:focus{
-            background-color: #5081FB3D;
-        }
-    }
-}
-
-@mixin Display(
-    $displayConfig: flex, 
-    $justifyConfig: center, 
-    $alignConfig: center, 
-    $directionConfig: row
-    ) {
-    display: $displayConfig;
-    justify-content: $justifyConfig;
-    align-items: $alignConfig;
-    flex-direction: $directionConfig;
-}
-
 html, body, *{
     box-sizing: border-box;
     font-family: $font;
@@ -123,8 +15,38 @@ body{
     width: 100vw;
 }
 
+main{
+    width: 100%;
+}
+
+.main-content{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 66% 34%;
+}
+
+.app{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    margin-top: 40px;
+}
+
+.page-shown{
+    display: block;
+}
+
+.page-hidden{
+    display: none !important;
+}
+
 @media screen and (max-width: 450px){
     body{
         padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .app, .main-content{
+        grid-template-columns: 100% !important;
     }
 }

@@ -1,9 +1,5 @@
-@import '../Abstract/bases';
+@import '../Abstract/mixins';
 @import '../Abstract/variables';
-
-main{
-    width: 100%;
-}
 
 .code-area{
     @include Display(flex, center, center, column);
@@ -25,16 +21,18 @@ main{
         }
 
         &__code-input{
-            background-color: $black;
+            background-color: transparent;
             padding-right: 6px;
-            border: none;
-            min-height: 300px;
-            resize: none;
             font-family: $code-font;
             color: $white;
             font-size: 16px;
+            min-height: 300px;
             width: 100%;
+            display: inline-block;
             outline: none;
+
+            white-space:pre-wrap;
+            word-break:break-all;
 
             &::-webkit-scrollbar{
                 width: 5px;

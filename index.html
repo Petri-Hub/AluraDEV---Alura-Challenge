@@ -6,6 +6,8 @@
         <!-- CSS -->
         <link rel="stylesheet" href="/assets/styles/reset.css" />
         <link rel="stylesheet" href="/assets/styles/style.css" />
+        <!-- HIGHLIGHT JS -->
+        <link rel="stylesheet" href="assets/styles/Themes/highlight.css" />
         <!-- JAVASCRIPT -->
         <script defer type="module" src="./app/main.js"></script>
 
@@ -45,14 +47,12 @@
 
         <!-- APP -->
         <section class="app">
-            <!-- NAVIGATION MENU -->
+            <!-- 1/2 NAVIGATION MENU -->
             <aside class="nav-menu">
                 <h2 class="nav-menu__title">Menu</h2>
                 <nav>
                     <ul class="nav-menu__list">
-                        <li
-                            class="nav-menu__list__item nav-menu__list__item-selected"
-                        >
+                        <li class="nav-menu__list__item nav-menu__list__item-selected">
                             <a href="#">
                                 <div class="icon-wrapper">
                                     <img
@@ -79,82 +79,148 @@
                     </ul>
                 </nav>
             </aside>
-            <!-- CODE EDITOR -->
-            <main>
-                <div class="code-area">
-                    <div class="code-area__inner">
-                        <div class="code-area__inner__header">❤️💛💚</div>
-                        <pre
-                            contenteditable="true"
-                            class="code-area__inner__code-input"
-                            id="Code-Input"
-                        ></pre>
-                    </div>
-                </div>
-                <button class="code-area__button" id="Highlight-Button">
-                    Apply Highlight
-                </button>
-            </main>
-
-            <!-- OPTIONS MENU -->
-            <aside class="options-menu">
-                <!-- PROJECT -->
-                <form id="Main-Form">
-                    <fieldset class="options-menu__project">
-                        <legend class="options-menu__project__title">
-                            Seu Projeto
-                        </legend>
-                        <input
-                            class="options-menu__project__name"
-                            placeholder="Your project name"
-                            type="text"
-                        />
-                        <textarea
-                            class="options-menu__project__desc"
-                            placeholder="Your project description"
-                            form="Main-Form"
-                        ></textarea>
-                    </fieldset>
-                    <!-- CUSTOM -->
-                    <fieldset class="options-menu__custom">
-                        <legend class="options-menu__custom__title">
-                            Customization
-                        </legend>
-                        <div class="options-menu__wrapper">
-                            <select
-                                class="options-menu__custom__language"
-                                name="code-language"
-                                id="Code-Language"
-                            >
-                                <option
-                                    class="options-menu__custom__language__option"
-                                    value="JavaScript"
-                                >
-                                    JavaScript
-                                </option>
-                                <option
-                                    class="options-menu__custom__language__option"
-                                    value="TypeScript"
-                                >
-                                    TypeScript
-                                </option>
-                            </select>
-                            <div class="color-wrapper">
-                                <input
-                                    class="options-menu__custom__color"
-                                    type="color"
-                                    name="background-color"
-                                    id="Background-Color"
-                                    value="#D60040"
-                                />
+            <!-- 2/2 MAIN APP AREA -->
+            <main class="main-content">
+                <!-- 1/2 PAGES - CODE EDITOR -->
+                <section class="code-editor page page-0">
+                    <!--1/2 CODE EDITOR -->
+                    <div class="code-area" id="Code-Background">
+                        <div
+                            class="code-area__inner hljs"
+                            id="Code-Editor-Container"
+                        >
+                            <div class="code-area__inner__header">❤️💛💚</div>
+                            <div id="Code-Wrapper">
+                                <code
+                                    aria-label="Editor de código"
+                                    contenteditable="true"
+                                    class="code-area__inner__code-input"
+                                    id="Code-Input"
+                                ></code>
                             </div>
                         </div>
-                    </fieldset>
-                    <button id="Save-Project-Btn" type="submit">
-                        Save Project
+                    </div>
+                    <button class="code-area__button" id="Highlight-Button">
+                        Apply Highlight
                     </button>
-                </form>
-            </aside>
+                </section>
+                <!-- 2/2 CODE EDITOR -->
+                <section class="options-menu page page-0">
+                    <form id="Main-Form">
+                        <fieldset class="options-menu__project">
+                            <legend class="options-menu__project__title">
+                                Seu Projeto
+                            </legend>
+                            <input
+                                class="options-menu__project__name"
+                                placeholder="Your project name"
+                                id="Name-Input"
+                                type="text"
+                            />
+                            <textarea
+                                class="options-menu__project__desc"
+                                placeholder="Your project description"
+                                form="Main-Form"
+                                id="Desc-Input"
+                            ></textarea>
+                        </fieldset>
+                        
+                        <fieldset class="options-menu__custom">
+                            <legend class="options-menu__custom__title">
+                                Customization
+                            </legend>
+                            <div class="options-menu__wrapper">
+                                <select
+                                    class="options-menu__custom__language"
+                                    name="code-language"
+                                    id="Code-Language"
+                                >
+                                    <option
+                                        class="options-menu__custom__language__option"
+                                        value="c++"
+                                    >
+                                        C++
+                                    </option>
+                                    <option
+                                        class="options-menu__custom__language__option"
+                                        value="css"
+                                    >
+                                        CSS
+                                    </option>
+                                    <option
+                                        class="options-menu__custom__language__option"
+                                        value="html"
+                                    >
+                                        HTML
+                                    </option>
+                                    <option
+                                        class="options-menu__custom__language__option"
+                                        value="javascript"
+                                    >
+                                        JavaScript
+                                    </option>
+                                    <option
+                                        class="options-menu__custom__language__option"
+                                        value="java"
+                                    >
+                                        Java
+                                    </option>
+                                    <option
+                                        class="options-menu__custom__language__option"
+                                        value="plain-text"
+                                    >
+                                        Plain Text
+                                    </option>
+                                    <option
+                                        class="options-menu__custom__language__option"
+                                        value="python"
+                                    >
+                                        Python
+                                    </option>
+                                    <option
+                                        class="options-menu__custom__language__option"
+                                        value="scss"
+                                    >
+                                        SCSS
+                                    </option>
+                                    <option
+                                        class="options-menu__custom__language__option"
+                                        value="sql"
+                                    >
+                                        SQL
+                                    </option>
+                                    <option
+                                        class="options-menu__custom__language__option"
+                                        value="typescript"
+                                    >
+                                        TypeScript
+                                    </option>
+                                </select>
+                                <div class="color-wrapper">
+                                    <input
+                                        class="options-menu__custom__color"
+                                        type="color"
+                                        name="background-color"
+                                        id="Color-Input"
+                                        value="#D60040"
+                                    />
+                                </div>
+                            </div>
+                        </fieldset>
+                        <button id="Save-Project-Btn" type="submit">
+                            Save Project
+                        </button>
+                    </form>
+                </section>
+                <!-- 2/2 PAGES - Comunnity -->
+                <section class="community page page-1">
+                    <!-- CARDS injected via JavaScript -->
+                </section>
+
+
+
+            </main>
         </section>
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
 </html>
