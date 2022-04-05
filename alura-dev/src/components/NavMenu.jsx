@@ -13,6 +13,7 @@ const NavMenu = styled.aside`
     padding: 0;
     width: 100%;
     border-radius: 8px;
+    z-index: 100;
 
     @media (min-width: 768px) {
         display: block !important;

@@ -38,12 +38,13 @@ export const hljs = `
     .hljs-title,
     .hljs-section,
     .hljs-type,
+    .hljs-number,
     .hljs-selector-id {
-        font-family: var(--code_font);
+        font-family: var(--code_font) !important;
     }
 
     .hljs {
-        background: #272822;
+        background-color: #272822;
         color: #ddd;
     }
 

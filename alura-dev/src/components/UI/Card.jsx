@@ -52,7 +52,7 @@ const Card = styled.article`
         p{
             color: rgba(var(--light_color), 1);
             font-size: 16px;
-            margin-bottom: 24px
+            margin-bottom: 24px;
             margin-top: 12px;
         }
 

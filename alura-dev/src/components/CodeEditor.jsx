@@ -1,8 +1,14 @@
 //Dependencies
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
+import { toPng } from "html-to-image";
+import { saveAs } from 'file-saver'
 import styled from "styled-components";
 import hljs from "highlight.js";
 import Post from "../models/Post";
+//Icons/Images
+import imageDownloadIcon from "../assets/images/image-download-icon.svg";
+import downloadIcon from "../assets/images/download-icon.svg";
+import paintIcon from "../assets/images/paint-icon.svg"
 
 const CodeEditor = styled.div`
     column-gap: 40px;
@@ -25,10 +31,38 @@ const CodeEditor = styled.div`
                 padding-bottom: 16px;
 
                 .code-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
                     height: 36px;
-                    margin-bottom: 16px;
+                    margin-bottom: 12px;
                     padding: 16px 12px;
                     width: 100%;
+
+                    div {
+                        display: flex;
+
+                        img.image-download, img.download {
+                            cursor: pointer;
+                            filter: invert();
+                            height: 30px;
+                            width: 30px;
+                            margin-left: 7px;
+                        }
+
+                        img.image-download{
+                            transform: translateY(-3px);
+                        }
+
+                        img.paint{
+                            cursor: pointer;
+                            height: 25px;
+                            width: 25px;
+                            margin-right: 3px;
+                            filter: invert();
+ 
+                        }
+                    }
                 }
 
                 .input-wrapper {
@@ -63,6 +97,7 @@ const CodeEditor = styled.div`
 
             select {
                 appearance: none;
+                cursor: pointer;
 
                 option {
                     background-color: rgb(45, 65, 90);
@@ -125,34 +160,94 @@ const CodeEditor = styled.div`
 `;
 
 export default () => {
-    let codeInput = useRef(null);
-    let [code, setCode] = useState("");
-    let [name, setName] = useState("");
-    let [desc, setDesc] = useState("");
-    let [language, setLanguage] = useState("txt");
-    let [color, setColor] = useState("");
+    let [savedData] = useState(JSON.parse(localStorage.getItem('data')))
+    let [code, setCode] = useState(savedData.code || "");
+    let [name, setName] = useState(savedData.name || "");
+    let [desc, setDesc] = useState(savedData.desc || "");
+    let [language, setLanguage] = useState(savedData.language || "javascript");
+    let [color, setColor] = useState(savedData.color || generateRandomColor);
+    const codeWrapper = useRef(null);
+    const codeInput = useRef(null);
 
     useEffect(() => {
-        generateRandomColor();
-    }, []);
+        localStorage.setItem('data', JSON.stringify({
+            code: code,
+            name: name,
+            desc: desc,
+            language: language,
+            color: color
+        }))
+    }, [code, name, desc, language, color])
+
+    useEffect(() => {
+        codeInput.current.innerText = code
+        applyHighlight()
+    }, [])
+
+    const filesFormats = {
+        "c++": ".c",
+        "css": ".css",
+        "html": ".html",
+        "javascript": ".js",
+        "java": ".java",
+        "txt": ".txt",
+        "python": ".py",
+        "scss": ".scss",
+        "sql": ".sql",
+        "typescript": ".ts"
+    }
+
+    function changeTheme(){
+        console.log("Trying to change theme");
+    }
 
     function addNewPost(event) {
         event.preventDefault();
         event.stopPropagation();
-        let newPost = new Post(code, name, desc, language, color);
-        let existingEntries = JSON.parse(localStorage.getItem("posts")) || [];
-        localStorage.setItem(
-            "posts",
-            JSON.stringify([...existingEntries, newPost])
-        );
+        if(code){
+            let newPost = new Post(code, name, desc, language, color);
+            let existingEntries = JSON.parse(localStorage.getItem("posts")) || [];
+            localStorage.setItem(
+                "posts",
+                JSON.stringify([...existingEntries, newPost])
+            );
+        } else {
+            alert("You need to write something in the code editor in order to publish it")
+        }
+        
     }
+
+    //Function to download as data
+    function downloadFile() {
+        let codeLines = codeInput.current.innerText
+        let fileName = `${name || "My-Code"}` + filesFormats[language]
+        let blob = new Blob([codeLines], {
+            type: "text/plain;charset=utf-8"
+        })
+        saveAs(blob, fileName)
+    }
+
+    // Code used to save the div as an image
+    const savetoPng = useCallback(async (imgTitle) => {
+        toPng(codeWrapper.current, { cacheBust: true })
+            .then((dataUrl) => {
+                const link = document.createElement("a");
+                link.download = `${imgTitle || "My-Code"}.png`;
+                link.href = dataUrl;
+                link.click();
+            })
+            .catch((error) => {
+                alert("Sorry, an error ocurred.");
+                console.log(error);
+            });
+    }, [codeWrapper]);
 
     function generateRandomColor() {
         let color = "#" + (((1 << 24) * Math.random()) | 0).toString(16);
         while (color < 7) {
             color += "8";
         }
-        setColor(color);
+        return color
     }
 
     function applyHighlight() {
@@ -168,17 +263,38 @@ export default () => {
             {/* CODE AREA */}
             <section className="code-area">
                 <div
+                    ref={codeWrapper}
                     className="code-wrapper"
                     style={{ backgroundColor: color }}
                 >
                     <div className="hljs">
-                        <div className="code-header">❤️💛💚</div>
+                        <div className="code-header">
+                            <div>❤️💛💚</div>
+                            <div className="features-flex">
+                                <img
+                                    onClick={() => changeTheme()}
+                                    className="paint"
+                                    src={paintIcon} 
+                                    alt="Change theme" />
+                                <img
+                                    onClick={() => savetoPng(name)}
+                                    className="image-download"
+                                    src={imageDownloadIcon}
+                                    alt="Download to PNG"
+                                />
+                                <img
+                                    onClick={() => downloadFile()}
+                                    className="download"
+                                    src={downloadIcon}
+                                    alt="Download as file"
+                                />
+                            </div>
+                        </div>
                         <div className="input-wrapper">
                             <code
                                 style={{ fontFamily: "var(--code_font)" }}
                                 ref={codeInput}
                                 onInput={(e) => setCode(e.target.innerText)}
-                                value={code}
                                 className={language}
                                 contentEditable={true}
                             ></code>
