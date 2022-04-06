@@ -11,6 +11,7 @@ import menuIcon from "../assets/images/menu-icon.svg";
 import logo from "../assets/images/alura-dev-logo.svg";
 
 const Header = styled.header`
+    font-family: var(--default_font);
     display: grid;
     align-items: center;
     justify-content: space-between;

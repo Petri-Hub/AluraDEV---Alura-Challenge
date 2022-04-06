@@ -1,4 +1,5 @@
-export const hljs = `
+export function hljs(bgColor, color, color1, color2, color3, color4, color5, color6){
+    return `
     .hljs,
     .hljs-tag,
     .hljs-keyword,
@@ -44,8 +45,8 @@ export const hljs = `
     }
 
     .hljs {
-        background-color: #272822;
-        color: #ddd;
+        background-color: ${bgColor};
+        color: ${color};
     }
 
     .hljs-tag,
@@ -54,18 +55,18 @@ export const hljs = `
     .hljs-literal,
     .hljs-strong,
     .hljs-name {
-        color: #f92672;
+        color: ${color1};
     }
 
     .hljs-code {
-        color: #66d9ef;
+        color: ${color2};
     }
 
     .hljs-attribute,
     .hljs-symbol,
     .hljs-regexp,
     .hljs-link {
-        color: #bf79db;
+        color: ${color3};
     }
 
     .hljs-string,
@@ -82,19 +83,19 @@ export const hljs = `
     .hljs-variable,
     .hljs-template-tag,
     .hljs-template-variable {
-        color: #a6e22e;
+        color: ${color4};
     }
 
     .hljs-title.class_,
     .hljs-class .hljs-title {
-        color: white;
+        color: ${color5};
     }
 
     .hljs-comment,
     .hljs-quote,
     .hljs-deletion,
     .hljs-meta {
-        color: #75715e;
+        color: ${color6};
     }
 
     .hljs-keyword,
@@ -107,4 +108,5 @@ export const hljs = `
     .hljs-selector-id {
         font-weight: bold;
     }
-`;
+`
+}

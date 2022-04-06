@@ -17,7 +17,7 @@ const Main = styled.div`
     }
 `
 
-export default () => {
+export default ({changeTheme}) => {
     let [menuOpen, setMenuOpen] = useState(false)
 
     return(
@@ -28,9 +28,8 @@ export default () => {
                 <NavMenu isOpen={menuOpen}/>     
                 <div>
                     <Routes>
-                        <Route path="/" element={<CodeEditor />}></Route>
+                        <Route path="/" element={<CodeEditor changeTheme={changeTheme}/>}></Route>
                         <Route path="/community" element={<Community />}></Route>
-                        <Route path="/styleguide" element={<h1 style={{color: 'white'}}>Future Style Guide Page</h1>}></Route>
                     </Routes>
                 </div> 
             </Main>

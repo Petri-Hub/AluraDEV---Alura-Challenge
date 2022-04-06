@@ -9,6 +9,7 @@ import peopleIcon from "../assets/images/people-icon.svg";
 import heartIcon from "../assets/images/heart-icon.svg";
 
 const NavMenu = styled.aside`
+    font-family: var(--default_font);
     position: relative;
     padding: 0;
     width: 100%;
@@ -46,9 +47,8 @@ export default ({ isOpen }) => {
         let initialPath = String(window.location.pathname);
         const pages = {
             "/": () => setActiveItem(1),
-            "/community": () => setActiveItem(2),
-            "/styleguide": () => setActiveItem(3),
-        };
+            "/community": () => setActiveItem(2)
+        }
         pages[initialPath]();
     }, []);
 
@@ -71,14 +71,6 @@ export default ({ isOpen }) => {
                         func={() => setActiveItem(2)}
                         icon={peopleIcon}>
                         Community
-                    </NavItem>
-
-                    <NavItem
-                        page={"/styleguide"}
-                        selected={activeItem === 3 ? true : false}
-                        func={() => setActiveItem(3)}
-                        icon={heartIcon}>
-                        Style Guide
                     </NavItem>
                 </ul>
             </nav>

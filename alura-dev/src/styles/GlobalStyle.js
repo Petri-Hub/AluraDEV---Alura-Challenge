@@ -19,7 +19,6 @@ const GlobalStyle = createGlobalStyle`
     }
 
     *{
-        font-family: var(--default_font);
         box-sizing: border-box;
         padding: 0;
         margin: 0;
@@ -29,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
         width: 100vw;
         background-color: rgba(var(--bg_color), 1);
-        padding: 2rem 2rem 2rem 2rem;
+        padding: 2rem 2rem;
     }
 
     .default-input{
@@ -91,9 +90,15 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 
+    @media (max-width: 769px){
+        body{
+            padding: 2rem 1rem;
+        }
+    }
+
     /* -------------- HLJS THEME -------------- */
     
-    ${hljs}
+    ${({codeTheme}) => hljs(...codeTheme)}
 
     /* ---------------------------------------- */
 `;

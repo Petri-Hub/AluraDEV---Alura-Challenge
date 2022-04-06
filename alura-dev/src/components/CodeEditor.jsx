@@ -11,6 +11,7 @@ import downloadIcon from "../assets/images/download-icon.svg";
 import paintIcon from "../assets/images/paint-icon.svg"
 
 const CodeEditor = styled.div`
+    font-family: var(--default_font);
     column-gap: 40px;
     display: grid;
     grid-template-columns: 66% calc(34% - 40px);
@@ -67,6 +68,7 @@ const CodeEditor = styled.div`
 
                 .input-wrapper {
                     code {
+                        font-family: var(--code_font);
                         display: inline-block;
                         line-height: 1.2;
                         min-height: 300px;
@@ -90,20 +92,40 @@ const CodeEditor = styled.div`
             }
 
             textarea[name="description"] {
+                font-family: var(--default_font);
                 height: 80px;
                 margin-bottom: 40px;
                 resize: vertical;
             }
 
-            select {
-                appearance: none;
-                cursor: pointer;
+            .select-arrow{
+                position: relative;
+                select {
+                    position: relative;
+                    appearance: none;
+                    cursor: pointer;
 
-                option {
-                    background-color: rgb(45, 65, 90);
-                    color: rgba(255, 255, 255, 0.64);
+                    option {
+                        background-color: rgb(45, 65, 90);
+                        color: rgba(255, 255, 255, 0.64);
+                    }
                 }
-            }
+
+                &:after{
+                    position: absolute;
+                    content: '';
+                    width: 0;
+                    height: 0;
+                    border-right: 5px solid transparent;
+                    border-left: 5px solid transparent;
+                    border-top: 10px solid rgba(255, 255, 255, 0.64);
+                    right: 15px;
+                    top: 50%;
+                    transform: translate(0%, -120%);
+                    z-index: 100;
+                }
+            }   
+            
 
             input[type="color"] {
                 border: none;
@@ -159,7 +181,7 @@ const CodeEditor = styled.div`
     }
 `;
 
-export default () => {
+export default ({changeTheme}) => {
     let [savedData] = useState(JSON.parse(localStorage.getItem('data')))
     let [code, setCode] = useState(savedData.code || "");
     let [name, setName] = useState(savedData.name || "");
@@ -177,10 +199,13 @@ export default () => {
             language: language,
             color: color
         }))
+        if(code === ""){
+            codeInput.current.innerHTML = ""
+        }
     }, [code, name, desc, language, color])
 
     useEffect(() => {
-        codeInput.current.innerText = code
+        codeInput.current.textContent = code
         applyHighlight()
     }, [])
 
@@ -195,10 +220,6 @@ export default () => {
         "scss": ".scss",
         "sql": ".sql",
         "typescript": ".ts"
-    }
-
-    function changeTheme(){
-        console.log("Trying to change theme");
     }
 
     function addNewPost(event) {
@@ -272,7 +293,7 @@ export default () => {
                             <div>❤️💛💚</div>
                             <div className="features-flex">
                                 <img
-                                    onClick={() => changeTheme()}
+                                    onClick={changeTheme}
                                     className="paint"
                                     src={paintIcon} 
                                     alt="Change theme" />
@@ -292,7 +313,6 @@ export default () => {
                         </div>
                         <div className="input-wrapper">
                             <code
-                                style={{ fontFamily: "var(--code_font)" }}
                                 ref={codeInput}
                                 onInput={(e) => setCode(e.target.innerText)}
                                 className={language}
@@ -338,24 +358,28 @@ export default () => {
                     <fieldset>
                         <legend className="default-title">Customization</legend>
                         <div className="flex">
-                            <select
-                                onChange={(e) => {
-                                    setLanguage(e.target.value);
-                                }}
-                                value={language}
-                                className="default-input"
-                            >
-                                <option value="c++">C++</option>t
-                                <option value="css">CSS</option>t
-                                <option value="html">HTML</option>t
-                                <option value="javascript">Javascript</option>t
-                                <option value="java">Java</option>t
-                                <option value="txt">Plain Text</option>t
-                                <option value="python">Python</option>t
-                                <option value="scss">SCSS</option>t
-                                <option value="sql">SQL</option>t
-                                <option value="typescript">Typescript</option>t
-                            </select>
+                            <div className="select-arrow">
+                                <select
+                                    onChange={(e) => {
+                                        setLanguage(e.target.value);
+                                    }}
+                                    value={language}
+                                    className="default-input"
+                                >
+                                    <option value="c++">C++</option>t
+                                    <option value="css">CSS</option>t
+                                    <option value="html">HTML</option>t
+                                    <option value="javascript">Javascript</option>t
+                                    <option value="java">Java</option>t
+                                    <option value="txt">Plain Text</option>t
+                                    <option value="python">Python</option>t
+                                    <option value="scss">SCSS</option>t
+                                    <option value="sql">SQL</option>t
+                                    <option value="typescript">Typescript</option>t
+                                </select>
+                            </div>
+                            
+                                
                             <input
                                 onChange={(e) => {
                                     setColor(e.target.value);

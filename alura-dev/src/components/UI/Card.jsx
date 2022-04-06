@@ -8,6 +8,7 @@ import likeIcon from '../../assets/images/heart-icon.svg'
 import userPic from '../../assets/images/user-icon.png'
 
 const Card = styled.article`
+    font-family: var(--default_font);
     background-color: rgba(var(--dark_color), 0.15);
     border-radius: 8px;
     height: 350px;
@@ -36,7 +37,8 @@ const Card = styled.article`
             max-height: 165px;
             padding: 12px;
             width: 100%;
-            white-space: pre;
+            white-space: pre-wrap;
+            word-break: break-all;
         }
     }
 
