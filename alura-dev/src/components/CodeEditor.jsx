@@ -23,7 +23,6 @@ const CodeEditor = styled.div`
         }
 
         .code-wrapper {
-            background-color: blue;
             border-radius: 8px;
             padding: 32px;
 
@@ -207,6 +206,7 @@ export default ({changeTheme}) => {
     useEffect(() => {
         codeInput.current.textContent = code
         applyHighlight()
+        document.title = "AluraDEV | Editor"
     }, [])
 
     const filesFormats = {
@@ -264,11 +264,11 @@ export default ({changeTheme}) => {
     }, [codeWrapper]);
 
     function generateRandomColor() {
-        let color = "#" + (((1 << 24) * Math.random()) | 0).toString(16);
-        while (color < 7) {
-            color += "8";
-        }
-        return color
+        function c() {
+            var hex = Math.floor(Math.random()*256).toString(16);
+            return ("0"+String(hex)).substr(-2); // pad with zero
+          }
+          return "#"+c()+c()+c();
     }
 
     function applyHighlight() {
