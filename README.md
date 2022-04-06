@@ -77,7 +77,7 @@
 </div>
 
 <h2> How to run it ❓</h2>
-
-<p>Check the desired release version and follow the instructions on the README.md</p>
-
-<h3>Huge thanks to @alura-cursos for bringing to us students this awesome challenge</h3>
+<p>You can simply toy with the project <a href="https://petri-aluradev-i7yy4eyr7-petri-hub.vercel.app">here</a>.</p>
+<p>Want to run it locally? Check the desired release version and follow the instructions on the README.md</p>
+<h2></h2>
+<h3>Huge thanks to @alura-cursos for providing this awesome challenge to us students.</h3>
