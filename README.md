@@ -31,47 +31,47 @@
 </ul>
 
 <h2> Screenshots 🖼️ </h2>
-<div>
-     <p>Code Editor Page</p>
+<div align="center">
+     <p align="left">Code Editor Page</p>
      <img
           align="top"
           width="100%"
           src="https://user-images.githubusercontent.com/80995990/162049344-d9ebad04-27a2-43d6-9e4f-11a1dae9271f.png" 
      />
      <p></p>
-     <p>Community Page</p>
+     <p align="left">Community Page</p>
      <img
           align="top"
           width="100%"
           src="https://user-images.githubusercontent.com/80995990/162062495-329bac12-325b-49ae-9d8c-83e6e5827fb2.png" 
      />
      <p></p>
-     <p>Responsive</p>
+     <p align="left">Responsiveness</p>
      <img
           align="top"
           width="100%"
           src="https://user-images.githubusercontent.com/80995990/162063446-76509ccb-0260-43de-9b1b-01f4e6c491a3.png" 
      />
      <p></p>
-     <p>Some themes</p>
+     <p align="left">Some themes</p>
      <img
           align="center"
-          width="24.6%"
+          width="24.4%"
           src="https://user-images.githubusercontent.com/80995990/162050699-cd12126e-8030-4efe-9036-ae180851849c.png" 
      />
      <img
           align="center"
-          width="24.6%"
+          width="24.4%"
           src="https://user-images.githubusercontent.com/80995990/162050892-489b8971-e31f-4cbc-a93e-e222d18f958d.png" 
      />
      <img
           align="center"
-          width="24.6%"
+          width="24.4%"
           src="https://user-images.githubusercontent.com/80995990/162051597-e9ea61cf-5bae-49b5-8ffa-082d786ea058.png" 
      />
      <img
           align="center"
-          width="24.6%"
+          width="24.4%"
           src="https://user-images.githubusercontent.com/80995990/162051608-379b844d-6971-4ac7-9380-cb94396b810e.png" 
      />
 </div>
